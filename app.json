@@ -1,0 +1,37 @@
+{
+  "expo": {
+    "name": "MIAN FOOD",
+    "slug": "mian-food",
+    "scheme": "mianfood",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "package": "com.mianfood.marketplace"
+    },
+    "web": {
+      "favicon": "./assets/icon.png"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-status-bar",
+      [
+        "expo-splash-screen",
+        {
+          "backgroundColor": "#F02E74",
+          "image": "./assets/splash-icon.png",
+          "imageWidth": 180,
+          "resizeMode": "contain"
+        }
+      ],
+      "expo-font"
+    ],
+    "experiments": {
+      "baseUrl": "/mian-food"
+    }
+  }
+}

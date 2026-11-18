@@ -1,0 +1,330 @@
+{
+ "burger-smash": {
+  "source": "bing-full",
+  "url": "https://www.foodandwine.com/thmb/XE8ubzwObCIgMw7qJ9CsqUZocNM=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/MSG-Smash-Burger-FT-RECIPE0124-d9682401f3554ef683e24311abdf342b.jpg"
+ },
+ "burger-double": {
+  "source": "bing-full",
+  "url": "https://www.lamanna.com.au/wp-content/uploads/2025/05/LaManna-double-cheeseburger-recipe.jpg"
+ },
+ "burger-classic": {
+  "source": "bing-full",
+  "url": "https://www.superfashion.us/wp-content/uploads/2025/03/Close-Up-Of-A-Cheeseburger-With-French-Fries.png"
+ },
+ "burger-mushroom": {
+  "source": "bing-full",
+  "url": "https://whitneybond.com/wp-content/uploads/2023/05/mushroom-swiss-burger-14.jpeg"
+ },
+ "chicken-bucket2": {
+  "source": "bing-full",
+  "url": "https://thecookoutmenuz.com/wp-content/uploads/2026/10/kfc-chicken-bucket.webp"
+ },
+ "chicken-strips": {
+  "source": "bing-full",
+  "url": "https://foxeslovelemons.com/wp-content/uploads/2023/05/Buttermilk-Chicken-Tenders-5.jpg"
+ },
+ "popcorn-chicken": {
+  "source": "bing-full",
+  "url": "https://thecozycook.com/wp-content/uploads/2023/02/Popcorn-Chicken-1.jpg"
+ },
+ "chicken-gravy": {
+  "source": "bing-full",
+  "url": "https://ministryofcurry.com/wp-content/uploads/2020/12/karahi-chicken-curry_-850x1275.jpg"
+ },
+ "pizza-cheese": {
+  "source": "bing-full",
+  "url": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=1200&q=80"
+ },
+ "pizza-veggie": {
+  "source": "bing-full",
+  "url": "https://www.superhealthykids.com/wp-content/uploads/2021/10/best-veggie-pizza-featured-image-square-2.jpg"
+ },
+ "pizza-tikka": {
+  "source": "bing-full",
+  "url": "https://donpepino.com/cdn/shop/files/recipe-chicken-tikka-naan-pizza-2.jpg?v=1791311878&width=826"
+ },
+ "pizza-bbq": {
+  "source": "bing-full",
+  "url": "https://breadboozebacon.com/wp-content/uploads/2023/05/BBQ-Chicken-Pizza-IC-6.jpg"
+ },
+ "pizza-supreme": {
+  "source": "bing-full",
+  "url": "https://anaffairfromtheheart.com/wp-content/uploads/2022/10/Supreme-Pizza-6-scaled.jpg"
+ },
+ "calzone": {
+  "source": "bing-full",
+  "url": "https://myhomemaderecipe.com/assets/images/How-to-Make-a-Delicious-Pepperoni-Calzone-hero.jpg"
+ },
+ "garlic-bread": {
+  "source": "bing-full",
+  "url": "https://rocioindustries.com/wp-content/uploads/2026/11/cheesy-garlic-bread-recipe-1280x720.webp"
+ },
+ "bruschetta": {
+  "source": "bing-full",
+  "url": "https://hungarianchef.com/wp-content/uploads/2026/11/vegetarian-bruschetta-recipe-featured.jpg"
+ },
+ "lasagna": {
+  "source": "bing-full",
+  "url": "https://keviniscooking.com/wp-content/uploads/2020/05/Homemade-Italian-Lasagna-square.jpg"
+ },
+ "pasta": {
+  "source": "bing-full",
+  "url": "https://www.kitchenmomy.com/wp-content/uploads/2025/06/Creamy-Garlic-Penne-Pasta.jpg"
+ },
+ "loaded-fries": {
+  "source": "bing-full",
+  "url": "https://www.spendwithpennies.com/wp-content/uploads/2022/08/Loaded-Cheese-Fries-SpendWithPennies-4-1024x1536.jpg"
+ },
+ "cheese-fries": {
+  "source": "bing-full",
+  "url": "https://www.cookwithnabeela.com/wp-content/uploads/2024/05/CheeseFries.webp"
+ },
+ "onion-rings": {
+  "source": "bing-full",
+  "url": "https://natashaskitchen.com/wp-content/uploads/2022/06/Onion-Rings-Recipe-5.jpg"
+ },
+ "mozzarella-sticks": {
+  "source": "bing-full",
+  "url": "https://easyweeknightrecipes.com/wp-content/uploads/2024/04/Mozzarella-Sticks_0013.jpg"
+ },
+ "nachos": {
+  "source": "bing-full",
+  "url": "https://i.pinimg.com/originals/e5/c5/7b/e5c57b4babfada4a6a1bbcf8ae10c275.jpg"
+ },
+ "coleslaw": {
+  "source": "bing-full",
+  "url": "https://www.skinnytaste.com/wp-content/uploads/2023/06/Cole-Slaw-4.jpg"
+ },
+ "salad": {
+  "source": "bing-full",
+  "url": "https://hellolittlehome.com/wp-content/uploads/2022/08/garden-salad-recipe-2.jpg"
+ },
+ "corn": {
+  "source": "bing-full",
+  "url": "https://www.eatwell101.com/wp-content/uploads/2017/08/Grilled-Corn-on-the-Cob-Recipe.jpg"
+ },
+ "latte": {
+  "source": "bing-full",
+  "url": "https://www.allcookingclub.com/media/coffee-latte.webp"
+ },
+ "cold-brew": {
+  "source": "bing-full",
+  "url": "https://i.pinimg.com/originals/f0/df/e3/f0dfe32465f2160aef9abcad24002fda.jpg"
+ },
+ "frappe": {
+  "source": "bing-full",
+  "url": "http://gymonset.com/wp-content/uploads/2024/09/working10_Toffee_Coffee_Frappe_b1d64e6f-32ab-4a80-af89-0f82ffffd9f0.png"
+ },
+ "hot-chocolate": {
+  "source": "bing-full",
+  "url": "https://static.vecteezy.com/system/resources/previews/028/174/738/original/cup-of-hot-chocolate-with-cream-isolated-on-transparent-background-generative-ai-png.png"
+ },
+ "green-tea": {
+  "source": "bing-full",
+  "url": "https://img.freepik.com/premium-photo/cup-green-tea-isolated-white-background_728202-988.jpg?w=2000"
+ },
+ "smoothie": {
+  "source": "bing-full",
+  "url": "https://lifewitholivia.com/wp-content/uploads/2026/11/easy-fruit-smoothie-recipe-ingredients-scaled.webp"
+ },
+ "lemonade": {
+  "source": "bing-full",
+  "url": "https://img.freepik.com/premium-photo/lemonade-glass_919243-5151.jpg"
+ },
+ "water": {
+  "source": "bing-full",
+  "url": "https://irrorwxhokmllq5m.ldycdn.com/cloud/lqBplKmkljSRklpqkniliq/38794307-9092-45e3-bae8-0eb04b321df9.png"
+ },
+ "lassi": {
+  "source": "bing-full",
+  "url": "https://www.indianveggiedelight.com/wp-content/uploads/2023/01/sweet-lassi-recipe.jpg"
+ },
+ "karak-chai": {
+  "source": "bing-full",
+  "url": "https://www.teaforturmeric.com/wp-content/uploads/2021/11/Masala-Chai-Tea-9.jpg"
+ },
+ "cake-redvelvet": {
+  "source": "bing-full",
+  "url": "https://static.vecteezy.com/system/resources/previews/052/721/960/large_2x/delicious-red-velvet-cake-slice-with-cream-cheese-frosting-free-photo.jpg"
+ },
+ "cheesecake": {
+  "source": "bing-full",
+  "url": "https://cheesecakeco.in/cdn/shop/files/STRAWBERRYBAKEDCHEESECAKESLICE.jpg?v=1762103095&width=3840"
+ },
+ "lava-cake": {
+  "source": "bing-full",
+  "url": "https://www.ninjamachinerecipes.com/wp-content/uploads/2026/11/air-fryer-chocolate-lava-cakes-zoom-1-SbwR2.webp"
+ },
+ "sundae": {
+  "source": "bing-full",
+  "url": "https://icecreamfromscratch.com/wp-content/uploads/2022/05/Ice-Cream-Sundae-1.2.jpg"
+ },
+ "donut": {
+  "source": "bing-full",
+  "url": "https://natashaskitchen.com/wp-content/uploads/2021/05/Glazed-Donuts-5.jpg"
+ },
+ "cupcake": {
+  "source": "bing-full",
+  "url": "https://simplewhisk.com/wp-content/uploads/2025/04/Easy-Vanilla-Cupcakes-Recipe1-768x960.png"
+ },
+ "croissant": {
+  "source": "bing-full",
+  "url": "https://www.theflavorbender.com/wp-content/uploads/2020/05/French-Croissants-SM-2363.jpg"
+ },
+ "cinnamon-roll": {
+  "source": "bing-full",
+  "url": "https://whatocook.com/wp-content/uploads/2025/12/Homemade-Cinnamon-Rolls.png"
+ },
+ "waffle": {
+  "source": "bing-full",
+  "url": "https://cdn.momsdish.com/wp-content/uploads/2020/05/Belgian-Liege-Waffles-01-2048x3072.jpg"
+ },
+ "macaron": {
+  "source": "bing-full",
+  "url": "https://nonnafood.com/wp-content/uploads/2025/03/A-2-214.webp"
+ },
+ "tiramisu": {
+  "source": "bing-full",
+  "url": "https://saraflavors.com/wp-content/uploads/2026/01/AQOoK-2nTz6OMpi92OBuA-XXEuUATyH4VL9twSlV3iLV5bv_A9O8wGVEMABq53Nh60GhjLstvnW7sZoOKKviCJ04_iBE80bCHrQ5ew7cayz9CDa05OWUdBKJLCNFhrNCbtdIT4MxbUdRcf7SkfTe1R8d1Lkdbg-1769194393583.jpeg"
+ },
+ "cake-tier": {
+  "source": "bing-full",
+  "url": "https://www.daddyscake.com/images/celebration-cake.jpg"
+ },
+ "apple-pie": {
+  "source": "bing-full",
+  "url": "https://ruthrecipes.com/wp-content/uploads/2026/11/apple-pie-recipe-2026-11-13-154933-2.webp"
+ },
+ "naan": {
+  "source": "bing-full",
+  "url": "https://www.cookingclassy.com/wp-content/uploads/2021/01/naan-30.jpg"
+ },
+ "daal": {
+  "source": "bing-full",
+  "url": "https://static.vecteezy.com/system/resources/previews/011/239/482/large_2x/daal-curry-in-a-bowl-on-white-background-photo.jpg"
+ },
+ "nihari": {
+  "source": "bing-full",
+  "url": "https://untoldrecipesbynosheen.com/wp-content/uploads/2020/09/Nihari-featured-1.jpg"
+ },
+ "samosa": {
+  "source": "bing-full",
+  "url": "http://www.zedamagazine.com/wp-content/uploads/2018/06/Indian-Food-Samosa-Dish-HD-Wallpapers.jpg"
+ },
+ "pakora": {
+  "source": "bing-full",
+  "url": "https://i.pinimg.com/originals/b1/b0/37/b1b037bb1131982277365eda2f63ba85.jpg"
+ },
+ "bbq-platter": {
+  "source": "bing-full",
+  "url": "https://img.freepik.com/premium-photo/grilled-meat-platter-vegetables-tray-grill-barbecue-menu-restaurant-menu-dieting-cookbook-recipe_114941-2630.jpg?w=2000"
+ },
+ "raita": {
+  "source": "bing-full",
+  "url": "https://rumkisgoldenspoon.com/wp-content/uploads/2023/06/Cucumber-mint-raita-recipe-2.jpg"
+ },
+ "manchurian": {
+  "source": "bing-full",
+  "url": "https://mealsbymia.com/wp-content/uploads/2025/07/0_2-1752860224513.webp"
+ },
+ "club-sandwich": {
+  "source": "bing-full",
+  "url": "https://www.tasteofhome.com/wp-content/uploads/2025/04/Turkey-Club-Sandwich_EXPS_FT25_278726_EC_0408_5.jpg"
+ },
+ "philly": {
+  "source": "bing-full",
+  "url": "https://thecozycook.com/wp-content/uploads/2025/06/Philly-Cheesesteaks-1.jpg"
+ },
+ "panini": {
+  "source": "bing-full",
+  "url": "https://www.bordencheese.com/wp-content/uploads/2024/11/Borden_UltimateClubSandwichPaniniRecipe-1-scaled.jpg"
+ },
+ "steak": {
+  "source": "bing-full",
+  "url": "https://img.freepik.com/premium-photo/savor-moment-medium-rare-steak-white-plate_1077802-35665.jpg?w=996"
+ },
+ "combo-meal": {
+  "source": "bing-full",
+  "url": "https://img.magnific.com/premium-psd/fast-food-meal-with-burgers-fries-isolated-transparent-background_436336-30216.jpg?w=1480"
+ },
+ "happy-meal": {
+  "source": "bing-full",
+  "url": "https://chickenvalley.shop/wp-content/uploads/2025/10/Kids-Meal-cheese-burger.jpg"
+ },
+ "curly-fries": {
+  "source": "bing-full",
+  "url": "https://gastro-marktplatz.de/wp-content/uploads/2024/03/Curly-Fries.jpg"
+ },
+ "cookie": {
+  "source": "bing-full",
+  "url": "https://www.modernhoney.com/wp-content/uploads/2017/11/Thin-and-Crispy-Chocolate-Chip-Cookies-2.jpg"
+ },
+ "chicken-tikka": {
+  "source": "bing-full",
+  "url": "https://www.cookwithnabeela.com/wp-content/uploads/2025/10/ChickenTikkaMasalaCurry.jpg"
+ },
+ "oreo-shake": {
+  "source": "bing-full",
+  "url": "https://cookingandlove.com/wp-content/uploads/2026/03/Oreo-milkshake.jpg"
+ },
+ "milk-tea": {
+  "source": "bing-full",
+  "url": "https://i.pinimg.com/736x/03/f6/fb/03f6fb4d51076c1d5b29657c5053907b.jpg"
+ },
+ "cheese-paratha": {
+  "source": "bing-full",
+  "url": "https://tasteofsavor.com/assets/images/1737366786796-e5yxmkg5.webp"
+ },
+ "keema-paratha": {
+  "source": "bing-full",
+  "url": "https://www.awesomecuisine.com/wp-content/uploads/2012/04/Keema-Parath.jpg"
+ },
+ "omelette": {
+  "source": "bing-full",
+  "url": "https://joyfoodsunshine.com/wp-content/uploads/2022/07/best-omelette-recipe-1.jpg"
+ },
+ "shawarma": {
+  "source": "bing-full",
+  "url": "https://nataliecooking.com/wp-content/uploads/2025/11/91Chicken-Shawarma-Wrap.png"
+ },
+ "haleem": {
+  "source": "bing-full",
+  "url": "https://www.thedeliciouscrescent.com/wp-content/uploads/2020/08/Haleem-2.jpg"
+ },
+ "mango-shake": {
+  "source": "bing-full",
+  "url": "https://www.atastylovestory.com/wp-content/uploads/2026/02/mango-milkshake-hero-1.jpg"
+ },
+ "brownie": {
+  "source": "bing-full",
+  "url": "https://insanelygoodrecipes.com/wp-content/uploads/2024/06/chocolate-brownies-3.jpg"
+ },
+ "burger-veggie": {
+  "source": "bing-full",
+  "url": "https://www.cookingclassy.com/wp-content/uploads/2022/07/black-bean-burgers-1-1024x1536.jpg"
+ },
+ "burger-fish": {
+  "source": "bing-full",
+  "url": "https://alicesrecipes.com/assets/images/1743192093770-yevhc8xy.webp"
+ },
+ "chicken-fried": {
+  "source": "bing-full",
+  "url": "https://www.staysnatched.com/wp-content/uploads/2025/05/fried-chicken-recipe-4-1.jpg"
+ },
+ "chicken-nuggets": {
+  "source": "bing-full",
+  "url": "https://saucechick.s3.amazonaws.com/wp-content/uploads/2023/12/11035243/SAUCE0281_1.jpeg"
+ },
+ "chicken-wrap": {
+  "source": "bing-full",
+  "url": "https://www.cookinwithmima.com/wp-content/uploads/2022/11/buffalo-chicken-tortilla.jpg"
+ },
+ "tuna-melt": {
+  "source": "bing-full",
+  "url": "https://feelgoodfoodie.net/wp-content/uploads/2024/02/Tuna-Melt-Sandwich-11-1024x1536.jpg"
+ },
+ "ice-cream-tub": {
+  "source": "bing-full",
+  "url": "https://img.freepik.com/premium-photo/three-scoops-vanilla-ice-cream-bowl-with-spoon_885831-51384.jpg"
+ }
+}
