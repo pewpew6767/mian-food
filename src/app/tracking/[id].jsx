@@ -250,11 +250,13 @@ export default function TrackingScreen() {
                   : 'Address not available'
               }
             />
-            <DetailRow
-              icon="call-outline"
-              label={order.customerName}
-              value={order.phone}
-            />
+            {order.customerName || order.phone ? (
+              <DetailRow
+                icon="call-outline"
+                label={order.customerName}
+                value={order.phone}
+              />
+            ) : null}
             <DetailRow
               icon="cash-outline"
               label="Payment method"

@@ -1,6 +1,7 @@
 import { Ionicons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useRouter } from 'expo-router';
+import { useState } from 'react';
 import {
   Pressable,
   ScrollView,
@@ -9,6 +10,7 @@ import {
   View,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import ConfirmDialog from '@/components/ConfirmDialog';
 import { useOrders } from '@/context/OrdersContext';
 import { useUser } from '@/context/UserContext';
 import {
@@ -48,9 +50,10 @@ function MenuRow({ icon, title, subtitle, onPress, last = false }) {
 
 export default function AccountScreen() {
   const router = useRouter();
-  const { user } = useUser();
+  const { user, hasAccount, logOut } = useUser();
   const { orders } = useOrders();
-  const initial = user.name?.trim().charAt(0).toUpperCase() || 'F';
+  const [confirmLogout, setConfirmLogout] = useState(false);
+  const initial = user.name?.trim().charAt(0).toUpperCase() || 'G';
 
   return (
     <SafeAreaView style={styles.safe} edges={['top']}>
@@ -66,19 +69,34 @@ export default function AccountScreen() {
               <Text style={styles.avatarText}>{initial}</Text>
             </View>
             <View style={styles.heroCopy}>
-              <Text style={styles.name}>{user.name}</Text>
-              <Text style={styles.phone}>{user.phone}</Text>
+              <Text style={styles.name}>
+                {hasAccount ? user.name : 'Guest'}
+              </Text>
+              <Text style={styles.phone}>
+                {hasAccount
+                  ? user.phone
+                  : 'Create an account to save your details'}
+              </Text>
             </View>
             <Pressable
-              onPress={() => router.push('/profile')}
+              onPress={() =>
+                router.push(hasAccount ? '/profile' : '/signup')
+              }
               style={({ pressed }) => [
                 styles.editButton,
                 pressed && styles.pressed,
               ]}
               accessibilityRole="button"
+              accessibilityLabel={hasAccount ? 'Edit profile' : 'Sign up'}
             >
-              <Ionicons name="pencil" size={12} color={colors.white} />
-              <Text style={styles.editText}>Edit</Text>
+              <Ionicons
+                name={hasAccount ? 'pencil' : 'person-add'}
+                size={12}
+                color={colors.white}
+              />
+              <Text style={styles.editText}>
+                {hasAccount ? 'Edit' : 'Sign up'}
+              </Text>
             </Pressable>
           </View>
           <View style={styles.heroStats}>
@@ -126,6 +144,21 @@ export default function AccountScreen() {
               }
               onPress={() => router.push('/orders')}
             />
+            {hasAccount ? (
+              <MenuRow
+                icon="log-out-outline"
+                title="Log out"
+                subtitle="Sign back in with your phone number"
+                onPress={() => setConfirmLogout(true)}
+              />
+            ) : (
+              <MenuRow
+                icon="log-in-outline"
+                title="Log in"
+                subtitle="Access your saved profile and orders"
+                onPress={() => router.push('/login')}
+              />
+            )}
             <MenuRow
               icon="help-circle-outline"
               title="Help & support"
@@ -151,6 +184,19 @@ export default function AccountScreen() {
           <Text style={styles.version}>MIAN FOOD v1.0.0 - Faisalabad</Text>
         </View>
       </ScrollView>
+
+      <ConfirmDialog
+        visible={confirmLogout}
+        icon="log-out-outline"
+        title="Log out?"
+        message="Your profile stays on this device. Log back in with your phone number to see your details and orders again."
+        confirmLabel="Log out"
+        onConfirm={() => {
+          setConfirmLogout(false);
+          logOut();
+        }}
+        onCancel={() => setConfirmLogout(false)}
+      />
     </SafeAreaView>
   );
 }

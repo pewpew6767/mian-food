@@ -1,30 +1,116 @@
-import { createContext, useCallback, useContext, useMemo } from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+} from 'react';
 import useStoredState from '@/utils/useStoredState';
 
-const DEFAULT_USER = {
-  name: 'Hamza Khan',
-  phone: '0300 1234567',
-  addresses: [
-    {
-      id: 'addr-home',
-      label: 'Home',
-      line: 'House 12, Street 5, Susan Road, Madina Town',
-      city: 'Faisalabad',
-    },
-    {
-      id: 'addr-work',
-      label: 'Work',
-      line: 'Office 304, Kohinoor City, Main Jaranwala Road',
-      city: 'Faisalabad',
-    },
-  ],
-  selectedAddressId: 'addr-home',
+const EMPTY_USER = {
+  id: '',
+  name: '',
+  phone: '',
+  addresses: [],
+  selectedAddressId: null,
 };
+
+// Profile saved by the old demo build; it may contain demo personal details.
+const LEGACY_USER_KEY = 'mianfood.user.v3';
+
+const normalizePhone = (phone = '') => phone.replace(/\D/g, '');
 
 const UserContext = createContext(null);
 
 export function UserProvider({ children }) {
-  const [user, setUser] = useStoredState('mianfood.user.v3', DEFAULT_USER);
+  const [user, setUser, hydrated] = useStoredState(
+    'mianfood.user.v4',
+    EMPTY_USER
+  );
+  const [accounts, setAccounts, accountsHydrated] = useStoredState(
+    'mianfood.accounts.v1',
+    {}
+  );
+
+  useEffect(() => {
+    // Old demo data is never read again; drop it from the device.
+    AsyncStorage.removeItem(LEGACY_USER_KEY).catch(() => {});
+  }, []);
+
+  // Keep the saved account registry in sync with the signed-in profile.
+  useEffect(() => {
+    if (!hydrated || !accountsHydrated) return;
+    if (!user.id || !user.name?.trim() || !user.phone?.trim()) return;
+    setAccounts((previous) => {
+      const saved = previous[user.id];
+      if (saved && JSON.stringify(saved) === JSON.stringify(user)) {
+        return previous;
+      }
+      return { ...previous, [user.id]: user };
+    });
+  }, [accountsHydrated, hydrated, setAccounts, user]);
+
+  const signUp = useCallback(
+    ({ name, phone }) => {
+      const cleanName = name.trim();
+      const cleanPhone = phone.trim();
+      const key = normalizePhone(cleanPhone);
+      const duplicate = Object.values(accounts).some(
+        (account) => normalizePhone(account.phone) === key
+      );
+      if (duplicate) {
+        return {
+          ok: false,
+          error: 'This phone number already has an account. Log in instead.',
+        };
+      }
+
+      // Keep any address the customer added before creating the account.
+      const profile = {
+        id: `acct-${Date.now()}-${Math.random().toString(36).slice(2, 7)}`,
+        name: cleanName,
+        phone: cleanPhone,
+        addresses: user.id ? [] : user.addresses,
+        selectedAddressId: user.id ? null : user.selectedAddressId,
+      };
+      setAccounts((previous) => ({ ...previous, [profile.id]: profile }));
+      setUser(profile);
+      return { ok: true };
+    },
+    [accounts, setAccounts, setUser, user.addresses, user.id, user.selectedAddressId]
+  );
+
+  const logIn = useCallback(
+    (phone) => {
+      const key = normalizePhone(phone);
+      const account = Object.values(accounts).find(
+        (entry) => normalizePhone(entry.phone) === key
+      );
+      if (!account) {
+        return {
+          ok: false,
+          error: 'No account found for this number. Create one first.',
+        };
+      }
+      setUser({
+        id: account.id,
+        name: account.name,
+        phone: account.phone,
+        addresses: account.addresses || [],
+        selectedAddressId: account.selectedAddressId || null,
+      });
+      return { ok: true };
+    },
+    [accounts, setUser]
+  );
+
+  const logOut = useCallback(() => {
+    if (user.id && user.name?.trim() && user.phone?.trim()) {
+      setAccounts((previous) => ({ ...previous, [user.id]: user }));
+    }
+    setUser(EMPTY_USER);
+  }, [setAccounts, setUser, user]);
 
   const updateProfile = useCallback(
     (patch) => {
@@ -88,10 +174,20 @@ export function UserProvider({ children }) {
     [user.addresses, user.selectedAddressId]
   );
 
+  const hasAccount = useMemo(
+    () => Boolean(user.id && user.name?.trim() && user.phone?.trim()),
+    [user.id, user.name, user.phone]
+  );
+
   const value = useMemo(
     () => ({
       user,
+      hydrated,
+      hasAccount,
       selectedAddress,
+      signUp,
+      logIn,
+      logOut,
       updateProfile,
       addAddress,
       updateAddress,
@@ -100,7 +196,12 @@ export function UserProvider({ children }) {
     }),
     [
       user,
+      hydrated,
+      hasAccount,
       selectedAddress,
+      signUp,
+      logIn,
+      logOut,
       updateProfile,
       addAddress,
       updateAddress,

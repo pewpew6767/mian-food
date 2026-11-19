@@ -27,10 +27,14 @@ export default function CheckoutScreen() {
   const insets = useSafeAreaInsets();
   const { cart, restaurant, itemCount, subtotal, discount, deliveryFee, total, clearCart } =
     useCart();
-  const { user, selectedAddress } = useUser();
+  const { user, selectedAddress, updateProfile } = useUser();
   const { placeOrder } = useOrders();
-  const [name, setName] = useState(user.name);
-  const [phone, setPhone] = useState(user.phone);
+  const [nameDraft, setNameDraft] = useState(null);
+  const [phoneDraft, setPhoneDraft] = useState(null);
+  // Fall back to the saved profile so the fields fill in once it loads,
+  // without resetting anything the customer is typing.
+  const name = nameDraft ?? user.name;
+  const phone = phoneDraft ?? user.phone;
   const [instructions, setInstructions] = useState('');
   const [errors, setErrors] = useState({});
   const [placing, setPlacing] = useState(false);
@@ -60,7 +64,7 @@ export default function CheckoutScreen() {
     }
     const digits = phone.replace(/\D/g, '');
     if (digits.length < 10) {
-      next.phone = 'Enter a valid phone number, e.g. 0300 1234567.';
+      next.phone = 'Enter a valid phone number.';
     }
     if (!selectedAddress) {
       next.address = 'Choose where we should deliver your order.';
@@ -101,6 +105,11 @@ export default function CheckoutScreen() {
         instructions: instructions.trim(),
         paymentMethod: 'Cash on delivery',
       });
+
+      // Keep the signed-in profile in sync with the contact details used.
+      if (user.id) {
+        updateProfile({ name: name.trim(), phone: phone.trim() });
+      }
 
       clearCart();
       router.replace(`/tracking/${order.id}`);
@@ -167,7 +176,7 @@ export default function CheckoutScreen() {
               label="Full name"
               value={name}
               onChangeText={(text) => {
-                setName(text);
+                setNameDraft(text);
                 clearError('name');
               }}
               placeholder="Your name"
@@ -178,7 +187,7 @@ export default function CheckoutScreen() {
               label="Phone number"
               value={phone}
               onChangeText={(text) => {
-                setPhone(text);
+                setPhoneDraft(text);
                 clearError('phone');
               }}
               placeholder="03xx xxxxxxx"

@@ -1,6 +1,6 @@
 import { Ionicons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
-import { useRouter } from 'expo-router';
+import { Redirect, useRouter } from 'expo-router';
 import { useState } from 'react';
 import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -12,11 +12,23 @@ import { colors, radius, spacing } from '@/theme';
 
 export default function ProfileScreen() {
   const router = useRouter();
-  const { user, updateProfile } = useUser();
-  const [name, setName] = useState(user.name);
-  const [phone, setPhone] = useState(user.phone);
+  const { user, hydrated, updateProfile } = useUser();
+  const [nameDraft, setNameDraft] = useState(null);
+  const [phoneDraft, setPhoneDraft] = useState(null);
+  // Fall back to the saved profile so the fields fill in once it loads,
+  // without resetting anything the customer is typing.
+  const name = nameDraft ?? user.name;
+  const phone = phoneDraft ?? user.phone;
   const [errors, setErrors] = useState({});
   const [saved, setSaved] = useState(false);
+
+  if (!hydrated) {
+    return null;
+  }
+
+  if (!user.id) {
+    return <Redirect href="/login" />;
+  }
 
   const initials = user.name
     .split(' ')
@@ -32,7 +44,7 @@ export default function ProfileScreen() {
       next.name = 'Please enter your full name.';
     }
     if (phone.replace(/\D/g, '').length < 10) {
-      next.phone = 'Enter a valid phone number, e.g. 0300 1234567.';
+      next.phone = 'Enter a valid phone number.';
     }
     setErrors(next);
     if (Object.keys(next).length > 0) return;
@@ -55,7 +67,7 @@ export default function ProfileScreen() {
           style={styles.hero}
         >
           <View style={styles.avatar}>
-            <Text style={styles.avatarText}>{initials || 'F'}</Text>
+            <Text style={styles.avatarText}>{initials || 'G'}</Text>
           </View>
           <Text style={styles.heroName}>{user.name}</Text>
           <Text style={styles.heroPhone}>{user.phone}</Text>
@@ -90,7 +102,7 @@ export default function ProfileScreen() {
             label="Full name"
             value={name}
             onChangeText={(text) => {
-              setName(text);
+              setNameDraft(text);
               setSaved(false);
               setErrors((previous) => ({ ...previous, name: undefined }));
             }}
@@ -102,7 +114,7 @@ export default function ProfileScreen() {
             label="Phone number"
             value={phone}
             onChangeText={(text) => {
-              setPhone(text);
+              setPhoneDraft(text);
               setSaved(false);
               setErrors((previous) => ({ ...previous, phone: undefined }));
             }}

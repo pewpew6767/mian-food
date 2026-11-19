@@ -1,3 +1,4 @@
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import {
   createContext,
   useCallback,
@@ -6,22 +7,46 @@ import {
   useMemo,
   useRef,
 } from 'react';
+import { useUser } from '@/context/UserContext';
 import { ORDER_STEPS, STEP_INTERVAL_MS } from '@/data/orderStatus';
 import useStoredState from '@/utils/useStoredState';
 
 const OrdersContext = createContext(null);
 
+// Orders saved by the old demo build; they may contain demo personal details.
+const LEGACY_ORDERS_KEY = 'mianfood.orders.v2';
+
+const normalizePhone = (phone = '') => phone.replace(/\D/g, '');
+
 export function OrdersProvider({ children }) {
-  const [orders, setOrders, hydrated] = useStoredState(
-    'mianfood.orders.v2',
+  const { user } = useUser();
+  const [allOrders, setOrders, hydrated] = useStoredState(
+    'mianfood.orders.v3',
     []
   );
-  const ordersRef = useRef(orders);
+  const ordersRef = useRef(allOrders);
   const timers = useRef({});
 
   useEffect(() => {
-    ordersRef.current = orders;
-  }, [orders]);
+    AsyncStorage.removeItem(LEGACY_ORDERS_KEY).catch(() => {});
+  }, []);
+
+  useEffect(() => {
+    ordersRef.current = allOrders;
+  }, [allOrders]);
+
+  // Each order is only visible to the account that placed it.
+  const orders = useMemo(() => {
+    if (user.id) {
+      const phone = normalizePhone(user.phone);
+      return allOrders.filter(
+        (order) =>
+          order.accountId === user.id ||
+          (phone && normalizePhone(order.phone) === phone)
+      );
+    }
+    return allOrders.filter((order) => !order.accountId);
+  }, [allOrders, user.id, user.phone]);
 
   const advance = useCallback(
     (id) => {
@@ -63,13 +88,13 @@ export function OrdersProvider({ children }) {
   );
 
   useEffect(() => {
-    if (!orders.length) return;
-    orders.forEach((order) => {
+    if (!allOrders.length) return;
+    allOrders.forEach((order) => {
       if (order.statusIndex < ORDER_STEPS.length - 1) {
         schedule(order.id);
       }
     });
-  }, [orders, schedule]);
+  }, [allOrders, schedule]);
 
   useEffect(() => {
     const activeTimers = timers.current;
@@ -87,6 +112,7 @@ export function OrdersProvider({ children }) {
       const order = {
         ...details,
         id,
+        accountId: user.id || null,
         statusIndex: 0,
         placedAt: now,
         timeline: [{ step: 0, at: now }],
@@ -95,7 +121,7 @@ export function OrdersProvider({ children }) {
       schedule(id);
       return order;
     },
-    [schedule, setOrders]
+    [schedule, setOrders, user.id]
   );
 
   const getOrder = useCallback(
